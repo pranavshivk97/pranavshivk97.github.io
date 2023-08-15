@@ -13,7 +13,7 @@ import Navbar from "./components/Navbar"
 export const App = () => (
   <ChakraProvider theme={theme}>
     <Box p={5} fontSize="xl">
-    <Navbar />
+      <Navbar />
       <Grid minH="100vh">
         <Home />
       </Grid>

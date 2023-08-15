@@ -1,9 +1,9 @@
 import React from 'react'
-import { Center, Flex, HStack } from '@chakra-ui/react'
+import { Center, HStack } from '@chakra-ui/react'
 
 const Navbar = () => {
     return (
-        <HStack spacing={3}>
+        <HStack spacing={3} position='fixed'>
             <Center w='100px'>
                 Home
             </Center>
