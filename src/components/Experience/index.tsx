@@ -1,12 +1,11 @@
-import React from "react";
 import { Box, Heading } from "@chakra-ui/react";
 
 import Timeline from "./Timeline";
 
 const Experience = () => {
   return (
-    <Box bg="grey">
-      <Heading as="h1">Experience & Education</Heading>
+    <Box bg="grey" p={5} m={2}>
+      {/* <Heading as="h1">Experience & Education</Heading> */}
       <Timeline />
     </Box>
   );
