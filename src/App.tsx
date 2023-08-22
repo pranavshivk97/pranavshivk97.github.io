@@ -6,6 +6,7 @@ import Navbar from "./components/Navbar";
 import Experience from "./components/Experience";
 import Projects from "./components/Projects";
 import Skills from "./components/Skills";
+import Contact from "./components/Contact";
 
 export const App = () => (
   <ChakraProvider theme={theme}>
@@ -16,6 +17,7 @@ export const App = () => (
         <Route path="/experiences" element={<Experience />} />
         <Route path="/skills" element={<Skills />} />
         <Route path="/projects" element={<Projects />} />
+        <Route path="/contact" element={<Contact />} />
       </Routes>
     </Router>
   </ChakraProvider>
