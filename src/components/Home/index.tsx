@@ -1,8 +1,6 @@
 import {
   Box,
   Center,
-  Grid,
-  GridItem,
   Heading,
   Image,
   SimpleGrid,

@@ -1,4 +1,4 @@
-import { Box, Center, Flex, HStack, Link, Spacer } from "@chakra-ui/react";
+import { Box, Flex, Link, Spacer } from "@chakra-ui/react";
 
 const Navbar = () => {
   return (
@@ -12,7 +12,7 @@ const Navbar = () => {
       </Box>
 
       <Box p="5">
-        <Link href="#">Skills</Link>
+        <Link href="/skills">Skills</Link>
       </Box>
 
       <Box p="5">

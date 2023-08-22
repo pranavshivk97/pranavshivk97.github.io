@@ -5,7 +5,7 @@ import {
 import "react-vertical-timeline-component/style.min.css";
 
 import experiences from "./experiences";
-import { Icon, Tag } from "@chakra-ui/react";
+import { Icon, Tag, ListItem, Text, UnorderedList } from "@chakra-ui/react";
 import { faBriefcase, faSchool } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
@@ -20,12 +20,6 @@ const Timeline = () => {
               ? "vertical-timeline-element--work"
               : "vertical-timeline-element--education"
           }
-          //   contentStyle={
-          //     experience.work
-          //       ? { background: "rgb(33, 150, 243)", color: "#fff" }
-          //       : { background: "rgb(233, 30, 99)", color: "#fff" }
-          //   }
-          //   contentArrowStyle={{ borderRight: "7px solid  rgb(33, 150, 243)" }}
           date={experience.duration}
           iconStyle={
             experience.work
@@ -46,16 +40,18 @@ const Timeline = () => {
                 {skill}
               </Tag>
             ))}
-          <h3 className="vertical-timeline-element-title">
+          <Text as="h3" fontWeight="bold" textTransform="uppercase" className="vertical-timeline-element-title">
             {experience.title}
-          </h3>
-          <strong>
-            <h4 className="vertical-timeline-element-subtitle">
+          </Text>
+            <Text as="h4" textTransform="uppercase"  fontWeight="bold" className="vertical-timeline-element-subtitle">
               {experience.work ? experience.company : experience.school} -{" "}
               {experience.location}
-            </h4>
-          </strong>
-          <p>{experience.description}</p>
+            </Text>
+          <UnorderedList>
+            {experience.description.map((work, index) => (
+                <ListItem listStyleType={!experience.work ? "none" : ""} key={index}>{work}</ListItem>
+            ))}
+            </UnorderedList>
           <em>
             {!experience.work && experience.major && (
               <strong>Major: {experience.major}</strong>
