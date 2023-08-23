@@ -1,4 +1,4 @@
-let projects = [
+export const projects = [
     {
         title: "StockUp",
         description: "Stock price predicting web application using a neural network",
@@ -42,5 +42,3 @@ let projects = [
         github: "https://github.com/pranavshivk97/Account-Management-System"
     }
 ]
-
-export default projects;

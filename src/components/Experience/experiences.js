@@ -1,4 +1,4 @@
-let experiences = [
+export const experiences = [
     {
         work: true,
         title: "Software Engineer II",
@@ -69,5 +69,3 @@ let experiences = [
         skills: ["C++", "MATLAB"]
     },
 ]
-
-export default experiences;

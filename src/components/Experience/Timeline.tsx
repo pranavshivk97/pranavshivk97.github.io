@@ -4,7 +4,7 @@ import {
 } from "react-vertical-timeline-component";
 import "react-vertical-timeline-component/style.min.css";
 
-import experiences from "./experiences";
+import { experiences } from "./experiences";
 import { Icon, Tag, ListItem, Text, UnorderedList } from "@chakra-ui/react";
 import { faBriefcase, faSchool } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";

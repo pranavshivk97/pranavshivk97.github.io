@@ -1,32 +1,44 @@
-import React, { useRef, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import emailjs from "@emailjs/browser";
-import {
-  Button,
-  FormControl,
-  FormLabel,
-  Input,
-  Textarea,
-  VStack,
-} from "@chakra-ui/react";
-import { Field, Form, Formik } from "formik";
+import { Formik, FormikValues } from "formik";
+import { Box } from "@chakra-ui/react";
+
+import ContactForm from "./ContactForm";
+
+const validate = (values: FormikValues) => {
+    const errors = {
+        from_name: '',
+        userEmail: '',
+        message: ''
+    };
+
+    if (!values.from_name) {
+        errors.from_name = "Name cannot be empty!"
+    }
+
+    if (!values.userEmail) {
+        errors.userEmail = "Email cannot be empty!"
+    }
+
+    if (!values.message) {
+        errors.message = "Message cannot be left empty!"
+    }
+
+    return errors;
+}
 
 const Contact = () => {
-  const emailRef = useRef<HTMLInputElement>(null);
-  const nameRef = useRef<HTMLInputElement>(null);
   const [loading, setLoading] = useState<boolean>(false);
 
   useEffect(() => emailjs.init("Olsev5DtTdwvneSxV"), []);
 
-  const handleSubmit = async () => {
+  const handleSubmit = async (values: FormikValues) => {
     const serviceId = "service_hzjdb2n";
     const templateId = "contact_form";
 
     try {
       setLoading(true);
-      await emailjs.send(serviceId, templateId, {
-        from_name: nameRef.current?.value,
-        recipient: emailRef.current?.value,
-      });
+      await emailjs.send(serviceId, templateId, values);
       alert("Email successfully sent!");
     } catch (error) {
       console.log(error);
@@ -35,63 +47,22 @@ const Contact = () => {
     }
   };
 
-  console.log(nameRef.current?.value);
-
   return (
-    <Formik
-      initialValues={{
-        userName: "",
-        userEmail: "",
-        message: "",
-      }}
-      onSubmit={handleSubmit}
-    >
-      {({ values, errors, touched, resetForm }) => (
-        <Form>
-          <VStack spacing={3}>
-            <FormControl>
-              <FormLabel htmlFor="userName">Name:</FormLabel>
-              <Field
-                innerRef={nameRef}
-                as={Input}
-                type="text"
-                name="userName"
-                id="userName"
-              />
-            </FormControl>
-
-            <FormControl>
-              <FormLabel htmlFor="userEmail">Email:</FormLabel>
-              <Field
-                innerRef={emailRef}
-                as={Input}
-                type="text"
-                name="userEmail"
-                id="userEmail"
-              />
-            </FormControl>
-
-            <FormControl>
-              <FormLabel htmlFor="message">Message:</FormLabel>
-              <Field as={Textarea} type="text" name="message" id="message" />
-            </FormControl>
-
-            <Button type="submit" isDisabled={loading}>
-              Submit
-            </Button>
-          </VStack>
-        </Form>
-      )}
-    </Formik>
-    // <FormControl onSubmit={handleSubmit}>
-    //     <FormLabel>Name</FormLabel>
-    //     <Input ref={nameRef} type="text" name="user_name" />
-    //     <FormLabel>Email</FormLabel>
-    //     <Input ref={emailRef} type="email" name="user_email" />
-    //     <FormLabel>Message</FormLabel>
-    //     <Textarea name="message" />
-    //     <Button isLoading={loading}>Send!</Button>
-    // </FormControl>
+    <Box m={10} p={5} border="1px solid rgba(0, 0, 0, 0.5)" boxShadow="md">
+        <Formik
+            initialValues={{
+                from_name: "",
+                userEmail: "",
+                message: "",
+            }}
+            onSubmit={(values) => handleSubmit(values)}
+            validate={validate}
+        >
+            {({ errors, touched }) => (
+                <ContactForm errors={errors} touched={touched} loading={loading}/>
+            )}
+        </Formik>
+    </Box>
   );
 };
 
