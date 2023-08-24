@@ -1,5 +1,6 @@
 import { Form, Field, FormikErrors, FormikTouched } from 'formik';
 import { Button, FormControl, FormLabel, FormErrorMessage, Input, Textarea, HStack } from '@chakra-ui/react';
+import { MdEmail } from 'react-icons/all'
 
 interface ContactFormProps {
     errors: FormikErrors<{ from_name: '', userEmail: '', message: '' }>
@@ -40,8 +41,8 @@ const ContactForm = (props: ContactFormProps) => {
               <Field as={Textarea} type="text" name="message" id="message" />
               <FormErrorMessage>{props.errors.message}</FormErrorMessage>
             </FormControl>
-
-            <Button type="submit" isDisabled={props.loading}>
+            
+            <Button type="submit" leftIcon={<MdEmail />} isLoading={props.loading}>
               Submit
             </Button>
         </Form>

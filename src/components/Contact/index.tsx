@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import emailjs from "@emailjs/browser";
 import { Formik, FormikValues } from "formik";
-import { Box } from "@chakra-ui/react";
+import { Box, Center, Heading, Text } from "@chakra-ui/react";
 
 import ContactForm from "./ContactForm";
 
@@ -48,21 +48,28 @@ const Contact = () => {
   };
 
   return (
-    <Box m={10} p={5} border="1px solid rgba(0, 0, 0, 0.5)" boxShadow="md">
-        <Formik
-            initialValues={{
-                from_name: "",
-                userEmail: "",
-                message: "",
-            }}
-            onSubmit={(values) => handleSubmit(values)}
-            validate={validate}
-        >
-            {({ errors, touched }) => (
-                <ContactForm errors={errors} touched={touched} loading={loading}/>
-            )}
-        </Formik>
-    </Box>
+    <>
+      <Heading as="h6" textAlign="center">Contact</Heading>
+      <Text textAlign="center">Need to get in touch? Feel free to drop a message...</Text>
+      <Center id="contact-form">
+        <Box m={10} p={5} border="1px solid rgba(0, 0, 0, 0.5)" boxShadow="md" w="100%">
+          <Formik
+              initialValues={{
+                  from_name: "",
+                  userEmail: "",
+                  message: "",
+              }}
+              onSubmit={(values) => handleSubmit(values)}
+              validate={validate}
+          >
+              {({ errors, touched }) => (
+                  <ContactForm errors={errors} touched={touched} loading={loading}/>
+              )}
+          </Formik>
+        </Box>
+      </Center>
+      <Text textAlign="center">...or check out my social media</Text>
+    </>
   );
 };
 

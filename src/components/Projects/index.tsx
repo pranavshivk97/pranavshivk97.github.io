@@ -1,9 +1,10 @@
-import { Box } from "@chakra-ui/react";
+import { Box, Heading } from "@chakra-ui/react";
 import ProjectGrid from "./ProjectGrid";
 
 const Projects = () => {
   return (
-    <Box m={10}>
+    <Box id="projects" m={10}>
+      <Heading as="h1" textAlign="center">Projects</Heading>
       <ProjectGrid />
     </Box>
   );

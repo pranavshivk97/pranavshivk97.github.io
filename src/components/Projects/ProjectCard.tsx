@@ -1,5 +1,5 @@
 import { Button, Card, CardHeader, CardBody, CardFooter, HStack, Heading, Image, VStack, Tag, Text, ButtonGroup, List, ListItem } from '@chakra-ui/react'
-import { Link } from 'react-router-dom'
+import { Link } from '@chakra-ui/react'
 
 interface ProjectProps {
     title: string
@@ -36,7 +36,7 @@ const ProjectCard = (props: { project: ProjectProps} ) => {
           <CardFooter>
             <ButtonGroup spacing={3}>
                 <Button variant="ghost">
-                    <Link to={props.project.github}>Check it out!</Link>
+                    <Link href={props.project.github}>Check it out!</Link>
                 </Button>
                 <Button colorScheme="blue">Let's Go!</Button>
             </ButtonGroup>

@@ -5,13 +5,14 @@ import {
 import "react-vertical-timeline-component/style.min.css";
 
 import { experiences } from "./experiences";
-import { Icon, Tag, ListItem, Text, UnorderedList } from "@chakra-ui/react";
+import { Icon, Tag, ListItem, Text, UnorderedList, Box } from "@chakra-ui/react";
 import { faBriefcase, faSchool } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const Timeline = () => {
   return (
-    <VerticalTimeline>
+    <Box m={10} p={10}>
+        <VerticalTimeline>
       {experiences.map((experience, index) => (
         <VerticalTimelineElement
           key={index}
@@ -60,6 +61,8 @@ const Timeline = () => {
         </VerticalTimelineElement>
       ))}
     </VerticalTimeline>
+
+    </Box>
   );
 };
 

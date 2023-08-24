@@ -1,0 +1,12 @@
+.link {
+    padding: 5px 5px 5px 5px;
+    color: white;
+}
+
+.link:hover {
+    background-color: rgb(3, 255, 3);
+    text-decoration: underline;
+    transition: ease-in-out 2s;
+    cursor: pointer;
+    box-shadow: inset 200px 0 0 0 green;
+}

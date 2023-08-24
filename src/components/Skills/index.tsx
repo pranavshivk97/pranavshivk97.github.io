@@ -5,7 +5,8 @@ import { programmingLanguages, frameworks, databases, colors } from './skills'
 
 const Skills = () => {
     return (
-        <Box alignItems="center" m={10}>
+        <Box id="skills" alignItems="center" m={10} p={10}>
+            <Heading as="h1" textAlign="center">Skills</Heading>
             <Stack spacing={5}>
                 <Heading fontSize="xl" textTransform="uppercase">Programming Languages</Heading>
                 <Skillbar skills={programmingLanguages} colors={colors} />
