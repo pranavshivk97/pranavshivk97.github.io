@@ -6,26 +6,26 @@ import { Box, Center, Heading, Text } from "@chakra-ui/react";
 import ContactForm from "./ContactForm";
 
 const validate = (values: FormikValues) => {
-    const errors = {
-        from_name: '',
-        userEmail: '',
-        message: ''
-    };
+  const errors = {
+    from_name: "",
+    userEmail: "",
+    message: "",
+  };
 
-    if (!values.from_name) {
-        errors.from_name = "Name cannot be empty!"
-    }
+  if (!values.from_name) {
+    errors.from_name = "Name cannot be empty!";
+  }
 
-    if (!values.userEmail) {
-        errors.userEmail = "Email cannot be empty!"
-    }
+  if (!values.userEmail) {
+    errors.userEmail = "Email cannot be empty!";
+  }
 
-    if (!values.message) {
-        errors.message = "Message cannot be left empty!"
-    }
+  if (!values.message) {
+    errors.message = "Message cannot be left empty!";
+  }
 
-    return errors;
-}
+  return errors;
+};
 
 const Contact = () => {
   const [loading, setLoading] = useState<boolean>(false);
@@ -49,26 +49,40 @@ const Contact = () => {
 
   return (
     <>
-      <Heading as="h6" textAlign="center">Contact</Heading>
-      <Text textAlign="center">Need to get in touch? Feel free to drop a message...</Text>
+      <Heading as="h6" textAlign="center">
+        Contact
+      </Heading>
+      <Text textAlign="center">
+        Need to get in touch? Feel free to drop a message...
+      </Text>
       <Center id="contact-form">
-        <Box m={10} p={5} border="1px solid rgba(0, 0, 0, 0.5)" boxShadow="md" w="100%">
+        <Box
+          m={10}
+          p={5}
+          border="1px solid rgba(0, 0, 0, 0.5)"
+          boxShadow="md"
+          w="100%"
+        >
           <Formik
-              initialValues={{
-                  from_name: "",
-                  userEmail: "",
-                  message: "",
-              }}
-              onSubmit={(values) => handleSubmit(values)}
-              validate={validate}
+            initialValues={{
+              from_name: "",
+              userEmail: "",
+              message: "",
+            }}
+            onSubmit={(values) => handleSubmit(values)}
+            validate={validate}
           >
-              {({ errors, touched }) => (
-                  <ContactForm errors={errors} touched={touched} loading={loading}/>
-              )}
+            {({ errors, touched }) => (
+              <ContactForm
+                errors={errors}
+                touched={touched}
+                loading={loading}
+              />
+            )}
           </Formik>
         </Box>
       </Center>
-      <Text textAlign="center">...or check out my social media</Text>
+      <Text textAlign="center">...or you can reach me on my social media</Text>
     </>
   );
 };

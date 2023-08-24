@@ -1,7 +1,7 @@
 export const programmingLanguages = [
     { type: 'Python', level: 80 },
     { type: 'C++', level: 75},
-    { type: 'Javascript/TypeScript', level: 80},
+    { type: 'TypeScript', level: 80},
     { type: 'Golang', level: 70}
 ]
 
