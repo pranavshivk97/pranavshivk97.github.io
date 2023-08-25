@@ -17,21 +17,27 @@ const Skills = () => {
         {/* <ReactSkillbar skills={programmingLanguages} colors={colors} /> */}
 
         {programmingLanguages.map((lang, index) => (
-          <Skillbar title={lang.type} level={lang.level} />
+          <Skillbar key={index} title={lang.type} level={lang.level} />
         ))}
         <Divider />
 
         <Heading fontSize="xl" textTransform="uppercase">
           Frameworks and Technologies
         </Heading>
-        <ReactSkillbar skills={frameworks} colors={colors} />
+        {frameworks.map((framework, index) => (
+          <Skillbar key={index} title={framework.type} level={framework.level} />
+        ))}
+        {/* <ReactSkillbar skills={frameworks} colors={colors} /> */}
 
         <Divider />
 
         <Heading fontSize="xl" textTransform="uppercase">
           Databases
         </Heading>
-        <ReactSkillbar skills={databases} colors={colors} />
+        {databases.map((db, index) => (
+          <Skillbar key={index} title={db.type} level={db.level} />
+        ))}
+        {/* <ReactSkillbar skills={databases} colors={colors} /> */}
       </Stack>
     </Box>
   );
