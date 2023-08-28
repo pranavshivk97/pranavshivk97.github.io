@@ -27,23 +27,18 @@ body {
 }
 
 .skills {
+    width: 0;
     text-align: right;
     background-color: #26d435;
     padding-top: 10px;
     display: inline-block;
     font-weight: bolder;
     border-radius: 5px;
-    animation-iteration-count: 1 !important;
-    /* transition: 'width 1s ease-in-out'; */
     padding-bottom: 5px;
 }
 
 @keyframes fillBar {
-    from {
-        width: 0;
-    }
-
-    to {
+   100% {
         width: attr(w)%;
     }
 }
@@ -57,8 +52,6 @@ body {
 
 @media (prefers-reduced-motion: no-preference) {
     .skill-animation {
-        animation-duration: 2.5s;
-        animation-name: fillBar;
-        animation-iteration-count: 1;
+        animation: fillBar 2.5s 1;
     }
 }

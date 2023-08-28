@@ -1,16 +1,27 @@
 import { Box, Text, useInterval } from "@chakra-ui/react";
 import React, { useEffect, useRef, useState } from "react";
 import { useIntersectionObserver } from 'usehooks-ts';
+import { keyframes, usePrefersReducedMotion } from "@chakra-ui/react";
 
 import "./Skillbar.css";
 
 const Skillbar = (props: { title: string; level: Number }) => {
+  const increaseBars = keyframes(`
+    100% { width: ${String(props.level)}%; }
+  `)
+
+  console.log(increaseBars);
   const [percentage, setPercentage] = useState(0);
   const ref = useRef<HTMLDivElement | null>(null);
   const entry = useIntersectionObserver(ref, {});
   const isVisible = !!entry?.isIntersecting;
-  console.log(isVisible);
+  // console.log(isVisible);
 
+  const prefersReducedMotion = usePrefersReducedMotion();
+
+  const animation = `${increaseBars} 2.5s forwards`;
+
+  // console.log(animation)
   useInterval(() => {
     if (percentage !== props.level) {
       setPercentage((prevPercentage) => prevPercentage + 1)
@@ -19,14 +30,37 @@ const Skillbar = (props: { title: string; level: Number }) => {
 
   useEffect(() => {
     if (isVisible) {
-      entry.target.classList.add('.skill-animation')
+      ref.current?.classList.add('.skill-animation')
     }
   }, [entry]);
 
+  console.log(ref)
+
+  // useEffect(() => {
+  //   const observer = new IntersectionObserver(entries => {
+  //     entries.forEach(entry => {
+  //       const skills = ref.current?.querySelector(".skills");
+
+  //       if (entry.isIntersecting) {
+  //         // console.log(skills)
+  //         // ref.current.style.animation = animation;
+  //         // skills.
+  //         skills?.classList.add(".skill-animation");
+  //         return;
+  //       }
+  //     })
+  //   })
+
+  //   if (ref.current) {
+  //     observer.observe(ref.current);
+  //   }
+  // }, [])
+
   return (
-    <Box ref={ref} className="container">
+    <Box  className="skill-container">
       <Box className="title">{props.title}</Box>
       <Box
+        ref={ref}
         w={`${String(props.level)}%`} 
         // className={`skills ${isVisible && "skill-animation"}`}
         className="skills"
