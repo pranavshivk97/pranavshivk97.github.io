@@ -11,7 +11,7 @@ import {
 
 const Home = () => {
   return (
-      <Center height="800px" id="home-wrapper">
+      <Center height="800px" id="home-wrapper" w={[400, '100%']}>
         <SimpleGrid minChildWidth="200px" spacing={3} m={20}>
           <Box>
             <Image

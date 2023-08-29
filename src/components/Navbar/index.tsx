@@ -79,6 +79,7 @@ const Navbar = () => {
           display={['flex', 'flex', 'none', 'none']}
       />
       <Flex
+        className="navbar"
         display={display}
         background="rgba(0, 0, 0, 0.8)"
         w="100vw"
