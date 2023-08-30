@@ -20,14 +20,14 @@ const TimelineItem = (props: { experience: ExperienceProps }) => {
     return (
         <Box className='timeline-card'>
             <Card className="timeline-content">
-                <SimpleGrid spacing={3} columns={4}>
+                <SimpleGrid spacing={5} columns={4}>
                     {props.experience.skills.map((skill, index) => (
-                            <Tag textAlign='center' p={2} key={index}>{skill}</Tag>
+                            <Tag p={1} textAlign='center' key={index}>{skill}</Tag>
                     ))}
                 </SimpleGrid>
                 <CardHeader>
                     <Text as='h2' fontWeight='bolder' fontSize="2xl">{props.experience.title}</Text>
-                    <Text>{props.experience.work ? props.experience.company : props.experience.school}, {props.experience.location}</Text>
+                    <Text fontWeight='bolder'>{props.experience.work ? props.experience.company : props.experience.school}, {props.experience.location}</Text>
                     <Text>{props.experience.duration}</Text>
                 </CardHeader>
                 <CardBody>

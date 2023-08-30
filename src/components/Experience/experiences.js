@@ -55,7 +55,7 @@ export const experiences = [
         location: "Bangalore, India",
         duration: "Jan 2019 - March 2019",
         description: [" Engineered a sophisticated WiFi/Bluetooth data sniffing module, alongside a robust Controller Area Network (CAN) and RS 485 data transmitter and receiver. The design involved the integration of a Raspberry Pi and MCP2515 CAN module, seamlessly communicating through advanced socket programming in Python."],
-        skills: ["Python", "Socket Programming"]
+        skills: ["Python", "Sockets"]
     },
     {
         work: false,
