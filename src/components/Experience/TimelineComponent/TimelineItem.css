@@ -5,6 +5,8 @@
     position: relative;
     margin: 10px 0;
     width: 50%;
+
+   
 }
 
 .timeline-card:nth-child(odd) {
@@ -68,4 +70,33 @@
     left: -40px;
 }
 
+@keyframes slideCardLeft {
+    from {
+        transform: translateX(-100%);
+    }
+
+    to {
+        transform: translateX(0%);
+    }
+}
+
+@keyframes slideCardRight {
+    from {
+        transform: translateX(100%);
+    }
+
+    to {
+        transform: translateX(0%);
+    }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+   .timeline-card {
+        animation: slideCardLeft 2.5s 1;
+    }
+
+    .timeline-card:nth-child(odd) {
+        animation: slideCardRight 2.5s 1;
+    }
+}
 

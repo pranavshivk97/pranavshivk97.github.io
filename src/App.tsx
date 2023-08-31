@@ -1,4 +1,4 @@
-import { ChakraProvider, theme } from "@chakra-ui/react";
+import { Box, ChakraProvider, theme } from "@chakra-ui/react";
 
 import Home from "./components/Home";
 import Navbar from "./components/Navbar";
@@ -10,7 +10,7 @@ import Footer from "./components/Footer";
 import './App.css'
 
 export const App = () => (
-  <ChakraProvider theme={theme}>
+  <Box color="#03a062">
     <Navbar />
     <Home />
     <Experience />
@@ -18,5 +18,5 @@ export const App = () => (
     <Projects />
     <Contact />
     <Footer />
-  </ChakraProvider>
+  </Box>
 );

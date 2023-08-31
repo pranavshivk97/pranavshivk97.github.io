@@ -17,11 +17,10 @@ const Skillbar = (props: { title: string; level: Number }) => {
   const isVisible = !!entry?.isIntersecting;
   // console.log(isVisible);
 
-  const prefersReducedMotion = usePrefersReducedMotion();
+  // const prefersReducedMotion = usePrefersReducedMotion();
 
-  const animation = `${increaseBars} 2.5s forwards`;
+  // const animation = `${increaseBars} 2.5s forwards`;
 
-  // console.log(animation)
   useInterval(() => {
     if (percentage !== props.level) {
       setPercentage((prevPercentage) => prevPercentage + 1)

@@ -1,5 +1,6 @@
 import { Box, Card, CardBody, CardHeader, SimpleGrid, Heading, ListItem, Tag, Text, UnorderedList } from '@chakra-ui/react';
-import React from 'react'
+import React, { useEffect, useRef, useState } from 'react'
+import { useIntersectionObserver } from 'usehooks-ts';
 
 import './TimelineItem.css'
 import { experiences } from '../experiences';
@@ -17,12 +18,38 @@ interface ExperienceProps {
 }
 
 const TimelineItem = (props: { experience: ExperienceProps }) => {
+    const cardRef = useRef<HTMLDivElement>(null);
+    const [isVisible, setVisible] = useState<boolean>(false);
+    // const entry = useIntersectionObserver(cardRef, {});
+    // const isVisible = !!entry?.isIntersecting;
+
+    const options = {
+        root: null,
+        threshold: 1,
+        rootMargin: '0px'
+    }
+
+    useEffect(() => {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => setVisible(entry.isIntersecting))
+        }, options);
+
+        if (cardRef.current) {
+            observer.observe(cardRef.current);
+            // cardRef.current.classList.add('card-animation');
+        }
+
+        return (() => {
+            if (cardRef.current) observer.unobserve(cardRef.current)
+        })
+    }, [isVisible])
+
     return (
-        <Box className='timeline-card'>
-            <Card className="timeline-content">
+        <Box className={`timeline-card ${isVisible ? 'is-visible' : ''}`}>
+            <Card ref={cardRef} className='timeline-content' color="#03a062">
                 <SimpleGrid spacing={5} columns={4}>
                     {props.experience.skills.map((skill, index) => (
-                            <Tag p={1} textAlign='center' key={index}>{skill}</Tag>
+                            <Tag colorScheme="whatsapp" textAlign='center' key={index}>{skill}</Tag>
                     ))}
                 </SimpleGrid>
                 <CardHeader>
