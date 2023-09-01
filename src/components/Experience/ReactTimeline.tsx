@@ -23,13 +23,13 @@ import {
             }
             date={experience.duration}
             iconStyle={{ background: '#03a062', color:'black' }}
-            icon={
-              experience.work ? (
-                <Icon as={FontAwesomeIcon} icon={faBriefcase} />
-              ) : (
-                <Icon as={FontAwesomeIcon} icon={faSchool} />
-              )
-            }
+            // icon={
+            //   experience.work ? (
+            //     <Icon as={FontAwesomeIcon} icon={faBriefcase} />
+            //   ) : (
+            //     <Icon as={FontAwesomeIcon} icon={faSchool} />
+            //   )
+            // }
             contentStyle={{border: '2px solid green', background: "rgba(0, 0, 0, 0.1)"}}
           >
             {experience.skills &&

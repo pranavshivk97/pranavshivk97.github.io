@@ -14,9 +14,10 @@ const ProjectCard = (props: { project: ProjectProps} ) => {
     return (
         <Card align="center" maxW="sm">
           <CardHeader>
-            <VStack spacing={2}>
+            {/* <VStack spacing={2}> */}
               <Image
-              fit="scale-down"
+              boxSize="sm"
+              objectFit="cover"
               src={props.project.image}
               />
               <Heading size="md">{props.project.title}</Heading>
@@ -25,7 +26,7 @@ const ProjectCard = (props: { project: ProjectProps} ) => {
                   <Tag key={index}>{skill}</Tag>
                 ))}
               </HStack>
-            </VStack>
+            {/* </VStack> */}
           </CardHeader>
           <CardBody>
             <List>

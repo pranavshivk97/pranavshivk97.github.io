@@ -27,6 +27,12 @@ const Navbar = () => {
           </Box>
 
           <Box p={5} className="link">
+            <Link to="#" duration={500} spy activeClass="active">
+              About Me
+            </Link>
+          </Box>
+
+          <Box p={5} className="link">
             <Link
               to="experiences"
               duration={500}
@@ -72,11 +78,13 @@ const Navbar = () => {
       {/* Mobile */}
       <IconButton
           aria-label="open-menu"
-          mr={5}
+          m={5}
           size='lg'
           icon={<HamburgerIcon />}
           onClick={() => setDisplay('flex')}
           display={['flex', 'flex', 'none', 'none']}
+          position="fixed"
+          background="#03a062"
       />
       <Flex
         className="navbar"
@@ -94,12 +102,12 @@ const Navbar = () => {
       >
         <Flex justify="flex-end">
           <IconButton
-            mt={5}
-            mr={5}
+            m={5}
             aria-label="close-menu"
             size='md'
             icon={<CloseIcon />}
             onClick={() => setDisplay('none')}
+            background="#03a062"
           />
         </Flex>
         <Flex

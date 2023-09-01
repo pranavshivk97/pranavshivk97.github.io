@@ -6,7 +6,7 @@ import ReactTimeline from "./ReactTimeline";
 const Experience = () => {
   return (
     <Box id="experiences" m={10} p={10} background="blackAlpha.900">
-        <Heading textAlign="center" as="h1">Experience</Heading>
+        <Heading textAlign="center" as="h1" pb={10}>Experience</Heading>
         <ReactTimeline />
     </Box>
   );

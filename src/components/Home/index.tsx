@@ -12,7 +12,7 @@ import {
 const Home = () => {
   return (
       <Center height="800px" id="home-wrapper" w={[400, '100%']}>
-        <SimpleGrid minChildWidth="200px" spacing={3} m={20}>
+        <SimpleGrid minChildWidth="200px" spacing={3} m={10} p={10} background="blackAlpha.900">
           <Box>
             <Image
               borderRadius="full"

@@ -48,7 +48,7 @@ const Contact = () => {
   };
 
   return (
-    <>
+    <Box m={10} p={10} background="blackAlpha.900">
       <Heading as="h6" textAlign="center">
         Contact
       </Heading>
@@ -59,7 +59,7 @@ const Contact = () => {
         <Box
           m={10}
           p={5}
-          border="1px solid rgba(0, 0, 0, 0.5)"
+          border="3px solid #03a062" 
           boxShadow="md"
           w="100%"
         >
@@ -83,7 +83,7 @@ const Contact = () => {
         </Box>
       </Center>
       <Text textAlign="center">...or you can reach me on my social media</Text>
-    </>
+    </Box>
   );
 };
 
