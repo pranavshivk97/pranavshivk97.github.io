@@ -10,7 +10,7 @@ const Skillbar = (props: { title: string; level: Number }) => {
     100% { width: ${String(props.level)}%; }
   `)
 
-  console.log(increaseBars);
+  // console.log(increaseBars);
   const [percentage, setPercentage] = useState(0);
   const ref = useRef<HTMLDivElement | null>(null);
   const entry = useIntersectionObserver(ref, {});
@@ -33,7 +33,7 @@ const Skillbar = (props: { title: string; level: Number }) => {
     }
   }, [entry]);
 
-  console.log(ref)
+  // console.log(ref)
 
   // useEffect(() => {
   //   const observer = new IntersectionObserver(entries => {
@@ -56,7 +56,7 @@ const Skillbar = (props: { title: string; level: Number }) => {
   // }, [])
 
   return (
-    <Box  className="skill-container">
+    <Box className="skill-container">
       <Box className="title">{props.title}</Box>
       <Box
         ref={ref}

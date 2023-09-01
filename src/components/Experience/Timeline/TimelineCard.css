@@ -5,7 +5,9 @@
     position: relative;
     margin: 10px 0;
     width: 50%;
+    border-color: #03a062;
 
+    z-index: 100;
    
 }
 
@@ -14,6 +16,8 @@
     justify-content: flex-start;
     padding-left: 30px;
     padding-right: 0;
+
+    z-index: 100;
 }
 
 .timeline-content {
@@ -91,12 +95,17 @@
 }
 
 @media (prefers-reduced-motion: no-preference) {
-   .timeline-card {
+   .timeline-card.card-animation {
         animation: slideCardLeft 2.5s 1;
     }
 
-    .timeline-card:nth-child(odd) {
-        animation: slideCardRight 2.5s 1;
+    .timeline-card:nth-child(odd).card-animation {
+        transition: slideCardRight 2.5s 1;
     }
 }
+
+/* .card-transition {
+    opacity: 1;
+    transform: translateX(0px);
+} */
 

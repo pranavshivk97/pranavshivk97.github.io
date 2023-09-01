@@ -6,7 +6,7 @@ import Skillbar from "./Skillbar";
 
 const Skills = () => {
   return (
-    <Box id="skills" alignItems="center" m={10} p={10}>
+    <Box id="skills" alignItems="center" m={10} p={10} background="blackAlpha.900">
       <Heading as="h1" textAlign="center">
         Skills
       </Heading>

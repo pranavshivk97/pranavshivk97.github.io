@@ -10,7 +10,7 @@ import Footer from "./components/Footer";
 import './App.css'
 
 export const App = () => (
-  <Box color="#03a062">
+  <Box color="#03a062" background="gray.900">
     <Navbar />
     <Home />
     <Experience />
