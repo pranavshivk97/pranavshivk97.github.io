@@ -1,6 +1,6 @@
 import { Box, Text, useInterval } from "@chakra-ui/react";
 import React, { useEffect, useRef, useState } from "react";
-import { useIntersectionObserver } from 'usehooks-ts';
+import { useIntersectionObserver } from "usehooks-ts";
 import { keyframes, usePrefersReducedMotion } from "@chakra-ui/react";
 
 import "./Skillbar.css";
@@ -8,7 +8,7 @@ import "./Skillbar.css";
 const Skillbar = (props: { title: string; level: Number }) => {
   const increaseBars = keyframes(`
     100% { width: ${String(props.level)}%; }
-  `)
+  `);
 
   // console.log(increaseBars);
   const [percentage, setPercentage] = useState(0);
@@ -23,15 +23,15 @@ const Skillbar = (props: { title: string; level: Number }) => {
 
   useInterval(() => {
     if (percentage !== props.level) {
-      setPercentage((prevPercentage) => prevPercentage + 1)
+      setPercentage((prevPercentage) => prevPercentage + 1);
     }
-  }, 10)
+  }, 10);
 
   useEffect(() => {
     if (isVisible) {
-      ref.current?.classList.add('.skill-animation')
+      ref.current?.classList.add(".skill-animation");
     }
-  }, [entry]);
+  }, [entry, isVisible]);
 
   // console.log(ref)
 
@@ -60,7 +60,7 @@ const Skillbar = (props: { title: string; level: Number }) => {
       <Box className="title">{props.title}</Box>
       <Box
         ref={ref}
-        w={`${String(props.level)}%`} 
+        w={`${String(props.level)}%`}
         // className={`skills ${isVisible && "skill-animation"}`}
         className="skills"
       >

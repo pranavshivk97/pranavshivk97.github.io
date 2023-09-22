@@ -6,7 +6,13 @@ import Skillbar from "./Skillbar";
 
 const Skills = () => {
   return (
-    <Box id="skills" alignItems="center" m={10} p={10} background="blackAlpha.900">
+    <Box
+      id="skills"
+      alignItems="center"
+      m={10}
+      p={10}
+      background="blackAlpha.900"
+    >
       <Heading as="h1" textAlign="center">
         Skills
       </Heading>
@@ -25,7 +31,11 @@ const Skills = () => {
           Frameworks and Technologies
         </Heading>
         {frameworks.map((framework, index) => (
-          <Skillbar key={index} title={framework.type} level={framework.level} />
+          <Skillbar
+            key={index}
+            title={framework.type}
+            level={framework.level}
+          />
         ))}
         {/* <ReactSkillbar skills={frameworks} colors={colors} /> */}
 

@@ -56,13 +56,7 @@ const Contact = () => {
         Need to get in touch? Feel free to drop a message...
       </Text>
       <Center id="contact-form">
-        <Box
-          m={10}
-          p={5}
-          border="3px solid #03a062" 
-          boxShadow="md"
-          w="100%"
-        >
+        <Box m={10} p={5} border="3px solid #03a062" boxShadow="md" w="100%">
           <Formik
             initialValues={{
               from_name: "",
