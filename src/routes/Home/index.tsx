@@ -1,7 +1,6 @@
 import {
   Box,
   Center,
-  Container,
   Heading,
   Image,
   SimpleGrid,
@@ -11,13 +10,14 @@ import {
 
 const Home = () => {
   return (
-    <Center height="800px" id="home-wrapper" w={[400, "100%"]}>
+    <Center h="800px" id="home-wrapper">
       <SimpleGrid
         minChildWidth="200px"
         spacing={3}
-        m={10}
+        m={5}
         p={10}
-        background="blackAlpha.900"
+        // background="blackAlpha.900"
+        display="flex"
       >
         <Box>
           <Image
@@ -29,7 +29,7 @@ const Home = () => {
         </Box>
 
         <Box>
-          <VStack align="left" spacing={3}>
+          <VStack align="right" spacing={3}>
             <Text fontSize="lg">Hi, I am</Text>
             <Heading as="h1" size="4xl">
               Pranav Shivkumar
