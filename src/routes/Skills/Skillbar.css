@@ -24,30 +24,36 @@ body {
     padding-bottom: 14px;
     margin-right: -5px;
     text-align: center;
+    z-index: 9999;
 }
 
 .skills {
+    position: relative;
+    top: 10px;
     width: 0;
     text-align: right;
     background-color: #26d435;
-    padding-top: 10px;
+    padding-top: 19px;
     display: inline-block;
     font-weight: bolder;
     border-radius: 5px;
-    padding-bottom: 5px;
+    padding-bottom: 20px;
 }
 
 @keyframes fillBar {
-   100% {
+    from {
+        width: 0;
+    }
+   to {
         width: attr(w)%;
     }
 }
 
 .percentage {
-    color: white;
+    color: #03a062;
     position: relative;
     top: -5px;
-    right: 5px;
+    right: -10px;
 }
 
 @media (prefers-reduced-motion: no-preference) {
