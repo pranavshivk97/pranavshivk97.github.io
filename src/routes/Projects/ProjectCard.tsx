@@ -26,17 +26,15 @@ interface ProjectProps {
 
 const ProjectCard = (props: { project: ProjectProps }) => {
   return (
-    <Card align="center" maxW="sm">
+    <Card align="center" maxW="sm" >
       <CardHeader>
-        {/* <VStack spacing={2}> */}
-        <Image boxSize="sm" objectFit="cover" src={props.project.image} />
+        {/* <Image boxSize="sm" src={props.project.image} /> */}
         <Heading size="md">{props.project.title}</Heading>
         <HStack spacing={3}>
           {props.project.tech.map((skill, index) => (
             <Tag key={index}>{skill}</Tag>
           ))}
         </HStack>
-        {/* </VStack> */}
       </CardHeader>
       <CardBody>
         <List>

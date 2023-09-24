@@ -1,10 +1,6 @@
 import { Box, Text, useInterval } from "@chakra-ui/react";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useState } from "react";
 import { useInView } from 'react-intersection-observer'
-
-// import { useIntersectionObserver } from "usehooks-ts";
-// import { keyframes, usePrefersReducedMotion } from "@chakra-ui/react";
-
 
 import "./Skillbar.css";
 
