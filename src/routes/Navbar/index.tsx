@@ -124,6 +124,12 @@ const Navbar = () => {
           </Box>
 
           <Box p={5} className="link">
+            <Link to="about-me" duration={500} spy activeClass="active">
+              About Me
+            </Link>
+          </Box>
+
+          <Box p={5} className="link">
             <Link
               to="experiences"
               duration={500}

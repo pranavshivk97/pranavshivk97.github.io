@@ -28,18 +28,20 @@ const ReactTimeline = () => {
                 ? "vertical-timeline-element--work"
                 : "vertical-timeline-element--education"
             }
+            contentArrowStyle={{ borderRight: "7px solid #03a062" }}
             date={experience.duration}
-            iconStyle={{ background: "black" }}
-            // icon={
-            //   experience.work ? (
-            //     <Icon as={FontAwesomeIcon} icon={faBriefcase} />
-            //   ) : (
-            //     <Icon as={FontAwesomeIcon} icon={faSchool} />
-            //   )
-            // }
+            iconStyle={{ 
+              background: "#03a062", 
+              width: "20px", 
+              height: "20px", 
+              left: "605px", 
+              top: "25px", 
+              boxShadow: "none" 
+            }}
             contentStyle={{
               border: "2px solid green",
               background: "rgba(0, 0, 0, 0.1)",
+              boxShadow: "none"
             }}
           >
             {experience.skills &&
