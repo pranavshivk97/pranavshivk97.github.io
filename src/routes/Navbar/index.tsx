@@ -174,7 +174,9 @@ const Navbar = () => {
           </Box>
 
           <Box p={5} className="link">
-            <Link to="#">Resume</Link>
+            <ChakraLink href="/resume.pdf" isExternal>
+              Resume
+            </ChakraLink>
           </Box>
 
           <Box p={5} className="link">
