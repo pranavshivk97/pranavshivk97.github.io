@@ -1,4 +1,10 @@
-import { Box, Flex, IconButton, Spacer } from "@chakra-ui/react";
+import {
+  Box,
+  Flex,
+  IconButton,
+  Spacer,
+  Link as ChakraLink,
+} from "@chakra-ui/react";
 import { Link } from "react-scroll";
 import { HamburgerIcon, CloseIcon } from "@chakra-ui/icons";
 
@@ -71,7 +77,9 @@ const Navbar = () => {
         <Spacer />
 
         <Box p={5} className="link">
-          <Link to="#">Resume</Link>
+          <ChakraLink href="/resume.pdf" isExternal>
+            Resume
+          </ChakraLink>
         </Box>
 
         <Box p={5} className="link">
