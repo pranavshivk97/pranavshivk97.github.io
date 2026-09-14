@@ -18,11 +18,12 @@ interface IntroScreenProps {
 
 export default function IntroScreen({ onDone }: IntroScreenProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const commandRef = useRef<HTMLDivElement>(null);
   const roleRef = useRef<HTMLDivElement>(null);
+  const noteRef = useRef<HTMLDivElement>(null);
   const [exiting, setExiting] = useState(false);
   const onDoneRef = useRef(onDone);
   onDoneRef.current = onDone;
-  const finishRef = useRef<(immediate?: boolean) => void>(() => {});
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -143,56 +144,81 @@ export default function IntroScreen({ onDone }: IntroScreenProps) {
       if (event.key === 'Escape') finishIntro(false);
     };
 
-    finishRef.current = finishIntro;
-
     resizeIntro();
     window.addEventListener('resize', resizeIntro, { passive: true });
     window.addEventListener('keydown', onKeyDown);
 
     if (!reduced) {
       introRaf = requestAnimationFrame(drawIntro);
-      const target = introCopy.target;
-      const symbols = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789<>/{}[]';
-      const framesPerLetter = 2;
-      const decodeFrames = target.length * framesPerLetter;
-      const holdFrames = 5;
-      const encodeFrames = target.length;
-      let frame = 0;
 
-      const scramble = (resolvedCount: number) =>
-        target
-          .split('')
-          .map((char, index) => {
-            if (index < resolvedCount) return char;
-            return symbols[(Math.random() * symbols.length) | 0];
-          })
-          .join('');
+      // Every intro line runs: decode -> hold -> encode -> hold -> decode.
+      const symbols = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789<>/{}[]';
+      const intervalMs = 38;
+      const lettersPerFrame = 3;
+      const holdDecoded = 4;
+      const holdScrambled = 3;
+      const isFixed = (ch: string) => !/[A-Za-z0-9]/.test(ch);
+      const randSym = () => symbols[(Math.random() * symbols.length) | 0];
+
+      interface Line {
+        el: HTMLDivElement | null;
+        text: string;
+        start: number;
+      }
+      const lines: Line[] = [
+        { el: commandRef.current, text: introCopy.command, start: 0 },
+        { el: roleRef.current, text: introCopy.target, start: 8 },
+        { el: noteRef.current, text: introCopy.note, start: 16 },
+      ];
+
+      const phaseFrames = (len: number) => {
+        const d = Math.ceil(len / lettersPerFrame);
+        return { d, total: d + holdDecoded + d + holdScrambled + d };
+      };
+
+      const renderLine = (text: string, local: number): { str: string; done: boolean } => {
+        const chars = text.split('');
+        const len = chars.length;
+        const { d, total } = phaseFrames(len);
+        const t1 = d;
+        const t2 = t1 + holdDecoded;
+        const t3 = t2 + d;
+        const t4 = t3 + holdScrambled;
+        const scrambled = () =>
+          chars.map((c) => (isFixed(c) ? c : randSym())).join('');
+        const resolving = (resolved: number) =>
+          chars.map((c, i) => (isFixed(c) || i < resolved ? c : randSym())).join('');
+        const encoding = (scrambledCount: number) =>
+          chars.map((c, i) => (isFixed(c) || i < len - scrambledCount ? c : randSym())).join('');
+        if (local < 0) return { str: scrambled(), done: false };
+        if (local < t1) return { str: resolving(Math.min(len, local * lettersPerFrame)), done: false };
+        if (local < t2) return { str: text, done: false };
+        if (local < t3)
+          return { str: encoding(Math.min(len, (local - t2) * lettersPerFrame)), done: false };
+        if (local < t4) return { str: scrambled(), done: false };
+        if (local < total)
+          return { str: resolving(Math.min(len, (local - t4) * lettersPerFrame)), done: false };
+        return { str: text, done: true };
+      };
+
+      let frame = 0;
+      let lastEnd = 0;
+      lines.forEach((line) => {
+        lastEnd = Math.max(lastEnd, line.start + phaseFrames(line.text.length).total);
+      });
 
       decodeTimer = window.setInterval(() => {
         frame += 1;
-        if (frame <= decodeFrames) {
-          role.textContent = scramble(Math.floor(frame / framesPerLetter));
-        } else if (frame <= decodeFrames + holdFrames) {
-          role.textContent = target;
-        } else if (frame <= decodeFrames + holdFrames + encodeFrames) {
-          const encoded = frame - decodeFrames - holdFrames;
-          role.textContent = target
-            .split('')
-            .map((char, index) => {
-              if (index < target.length - encoded) return char;
-              return symbols[(Math.random() * symbols.length) | 0];
-            })
-            .join('');
-        } else {
-          const finalFrame = frame - decodeFrames - holdFrames - encodeFrames;
-          role.textContent = scramble(Math.min(target.length, Math.floor(finalFrame / framesPerLetter)));
-          if (finalFrame >= decodeFrames) {
-            window.clearInterval(decodeTimer);
-            role.textContent = target;
-          }
+        let allDone = true;
+        for (const line of lines) {
+          if (!line.el) continue;
+          const { str, done } = renderLine(line.text, frame - line.start);
+          line.el.textContent = str;
+          if (!done) allDone = false;
         }
-      }, 62);
-      finishTimer = window.setTimeout(() => finishIntro(false), 3450);
+        if (allDone) window.clearInterval(decodeTimer);
+      }, intervalMs);
+      finishTimer = window.setTimeout(() => finishIntro(false), lastEnd * intervalMs + 280);
     } else {
       finishIntro(true);
     }
@@ -217,22 +243,19 @@ export default function IntroScreen({ onDone }: IntroScreenProps) {
       <div className="intro-vignette" aria-hidden="true" />
       <div className="intro-frame" aria-hidden="true" />
       <div className="intro-copy">
-        <div className="intro-command">{introCopy.command}</div>
+        <div className="intro-command" ref={commandRef}>
+          {introCopy.command}
+        </div>
         <div className="intro-role" ref={roleRef}>
           {introCopy.target}
         </div>
-        <div className="intro-note">{introCopy.note}</div>
+        <div className="intro-note" ref={noteRef}>
+          {introCopy.note}
+        </div>
         <div className="intro-rule" aria-hidden="true">
           <span />
         </div>
       </div>
-      <button
-        className="skip-intro"
-        type="button"
-        onClick={() => finishRef.current(false)}
-      >
-        {introCopy.skip}
-      </button>
     </div>
   );
 }

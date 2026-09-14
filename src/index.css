@@ -125,24 +125,8 @@
       text-transform: uppercase;
     }
     .intro-rule { width: min(420px, 76%); height: 1px; margin: 25px auto 0; overflow: hidden; background: rgba(105,255,198,.13); }
-    .intro-rule span { display: block; width: 100%; height: 100%; background: var(--mint); transform: translateX(-100%); animation: intro-scan 3.35s cubic-bezier(.4,0,.2,1) forwards; box-shadow: 0 0 18px var(--mint); }
+    .intro-rule span { display: block; width: 100%; height: 100%; background: var(--mint); transform: translateX(-100%); animation: intro-scan 3.05s cubic-bezier(.4,0,.2,1) forwards; box-shadow: 0 0 18px var(--mint); }
     @keyframes intro-scan { to { transform: translateX(0); } }
-    .skip-intro {
-      position: absolute;
-      right: 30px;
-      bottom: 26px;
-      z-index: 8;
-      padding: 9px 0;
-      border: 0;
-      border-bottom: 1px solid rgba(105,255,198,.28);
-      color: var(--muted);
-      background: transparent;
-      font: 500 .66rem/1 var(--font-mono);
-      letter-spacing: .1em;
-      text-transform: uppercase;
-      cursor: pointer;
-    }
-    .skip-intro:hover, .skip-intro:focus-visible { color: var(--mint); border-color: var(--mint); outline: none; }
 
     .site-nav {
       position: fixed;
@@ -465,7 +449,6 @@
       .intro-frame { inset: 12px; }
       .intro-copy { width: calc(100% - 40px); padding-inline: 8px; }
       .intro-note { max-width: 280px; margin-inline: auto; }
-      .skip-intro { right: 20px; bottom: 18px; }
       .nav-inner { min-height: 58px; justify-content: center; }
       .nav-links { width: 100%; justify-content: space-between; gap: 0; }
       .nav-links a { padding: 10px 6px; font-size: .62rem; }

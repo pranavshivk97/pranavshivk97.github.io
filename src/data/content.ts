@@ -221,5 +221,4 @@ export const introCopy = {
   command: 'Compiling profile // signal resolving',
   target: 'LOADING',
   note: 'Product development · AI systems · mobile · backend',
-  skip: 'Skip intro',
 };
