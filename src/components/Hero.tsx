@@ -20,8 +20,8 @@ export default function Hero({ active }: HeroProps) {
     }
 
     let areaIndex = 0;
-    let charIndex = focusAreas[0].length;
-    let phase: 'hold' | 'delete' | 'type' = 'hold';
+    let charIndex = 0;
+    let phase: 'hold' | 'delete' | 'type' = 'type';
     let focusTimer = 0;
     let cancelled = false;
 
@@ -74,15 +74,13 @@ export default function Hero({ active }: HeroProps) {
 
     const onVisibility = () => {
       if (!document.hidden && !cancelled) {
-        commitPhrase();
-        phase = 'hold';
-        scheduleFocus(1450);
+        scheduleFocus(350);
       }
     };
 
     document.addEventListener('visibilitychange', onVisibility);
-    commitPhrase();
-    scheduleFocus(1450);
+    focus.textContent = '';
+    scheduleFocus(140);
 
     return () => {
       cancelled = true;
@@ -111,7 +109,7 @@ export default function Hero({ active }: HeroProps) {
         <div className="byline-line" aria-label="Areas of work">
           <span className="byline-prefix">~/building $</span>
           <span id="typed-focus" ref={typedRef}>
-            {focusAreas[0]}
+            {active ? '' : focusAreas[0]}
           </span>
           <span className="caret" aria-hidden="true" />
         </div>

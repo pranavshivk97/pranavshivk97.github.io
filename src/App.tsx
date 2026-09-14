@@ -16,6 +16,7 @@ import { smoothScrollTo } from './lib/smoothScroll';
 
 export default function App() {
   const [introDone, setIntroDone] = useState(false);
+  const [heroLive, setHeroLive] = useState(false);
 
   useLayoutEffect(() => {
     document.body.classList.toggle('intro-active', !introDone);
@@ -44,13 +45,15 @@ export default function App() {
 
   return (
     <>
-      {!introDone && <IntroScreen onDone={handleIntroDone} />}
+      {!introDone && (
+        <IntroScreen onDone={handleIntroDone} onExitStart={() => setHeroLive(true)} />
+      )}
       <SignalField />
       <div className="noise" aria-hidden="true" />
       <div className="page" id="portfolio-page" inert={!introDone}>
         <Navbar />
         <main>
-          <Hero active={introDone} />
+          <Hero active={heroLive} />
           <Marquee />
           <About />
           <Experience />

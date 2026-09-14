@@ -14,9 +14,11 @@ interface Particle {
 
 interface IntroScreenProps {
   onDone: () => void;
+  /** Fires the moment the exit transition begins (before onDone). */
+  onExitStart?: () => void;
 }
 
-export default function IntroScreen({ onDone }: IntroScreenProps) {
+export default function IntroScreen({ onDone, onExitStart }: IntroScreenProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const commandRef = useRef<HTMLDivElement>(null);
   const roleRef = useRef<HTMLDivElement>(null);
@@ -24,6 +26,8 @@ export default function IntroScreen({ onDone }: IntroScreenProps) {
   const [exiting, setExiting] = useState(false);
   const onDoneRef = useRef(onDone);
   onDoneRef.current = onDone;
+  const onExitStartRef = useRef(onExitStart);
+  onExitStartRef.current = onExitStart;
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -49,6 +53,7 @@ export default function IntroScreen({ onDone }: IntroScreenProps) {
       introFinished = true;
       window.clearInterval(decodeTimer);
       window.clearTimeout(finishTimer);
+      onExitStartRef.current?.();
       if (immediate) {
         cancelAnimationFrame(introRaf);
         onDoneRef.current();
