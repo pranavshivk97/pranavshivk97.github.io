@@ -147,6 +147,13 @@ export const projects: Project[] = [
       'Built cloud services and deployment foundations for onboarding and managing connected devices, spanning APIs, containers, orchestration, data stores, infrastructure as code, and secure operations.',
     tags: ['Python + Go', 'Kubernetes', 'Terraform'],
   },
+  {
+    no: '04 / OPERATIONS',
+    title: 'AI-assisted engineering workflows',
+    description:
+      'Built internal and on-call tooling that applies AI to the operational loop—helping engineers investigate faster and make production work more effective.',
+    tags: ['AI-Assisted Dev', 'On-Call', 'Production Engineering'],
+  },
 ];
 
 export const skillGroups: SkillGroup[] = [
