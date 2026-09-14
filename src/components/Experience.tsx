@@ -1,4 +1,5 @@
 import { roles } from '../data/content';
+import CompanyLogo from './CompanyLogo';
 import SectionHeader from './SectionHeader';
 
 export default function Experience() {
@@ -18,7 +19,10 @@ export default function Experience() {
                 {role.location && <span>{role.location}</span>}
               </div>
               <div className="role-body">
-                <p className="role-company">{role.company}</p>
+                <div className="role-head">
+                  <CompanyLogo name={role.logo} />
+                  <p className="role-company">{role.company}</p>
+                </div>
                 <h3>{role.title}</h3>
                 <ul>
                   {role.bullets.map((bullet, i) => (

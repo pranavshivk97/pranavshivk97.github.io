@@ -7,6 +7,7 @@ export interface Role {
   dates: string;
   location?: string;
   company: string;
+  logo: 'meta' | 'cisco' | 'tcs';
   title: string;
   bullets: string[];
 }
@@ -91,6 +92,7 @@ export const roles: Role[] = [
   {
     dates: 'Jun 2025 – Present',
     company: 'Meta',
+    logo: 'meta',
     title: 'Software Engineer',
     bullets: [
       'Helped build and scale Instagram-to-Facebook AI voice translation and dubbing experiences, contributing to growth from roughly 25K to 100K dubbed videos per day.',
@@ -102,6 +104,7 @@ export const roles: Role[] = [
     dates: 'Jun 2022 – May 2025',
     location: 'Morrisville, NC',
     company: 'Cisco Systems',
+    logo: 'cisco',
     title: 'Software Engineer',
     bullets: [
       'Built cloud services and infrastructure for an IoT onboarding and device-management platform across backend APIs, automation, and production operations.',
@@ -113,6 +116,7 @@ export const roles: Role[] = [
     dates: 'Jun 2021 – May 2022',
     location: 'Edison, NJ',
     company: 'Tata Consultancy Services',
+    logo: 'tcs',
     title: 'Software Engineer',
     bullets: [
       'Built and supported backend services, APIs, and cloud systems, developing the production engineering foundation that now informs product decisions end to end.',

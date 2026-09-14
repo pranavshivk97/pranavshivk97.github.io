@@ -326,7 +326,10 @@
     .role-meta { color: var(--muted); font: 500 .72rem/1.6 var(--font-mono); }
     .role-meta span { display: block; color: var(--dim); margin-top: 6px; }
     .role-body { max-width: 760px; }
-    .role-company { margin: 0 0 8px; color: var(--mint); font: 600 .78rem/1.4 var(--font-mono); letter-spacing: .08em; text-transform: uppercase; }
+    .role-head { display: flex; align-items: center; gap: 14px; margin: 0 0 10px; }
+    .role-company { margin: 0; color: var(--mint); font: 600 .78rem/1.4 var(--font-mono); letter-spacing: .08em; text-transform: uppercase; }
+    .company-logo { width: 46px; height: 46px; flex: none; display: grid; place-items: center; border: 1px solid var(--line); border-radius: 13px; background: rgba(255,255,255,.03); box-shadow: inset 0 1px 0 rgba(255,255,255,.05); }
+    .company-logo svg { display: block; }
     .role-body h3 { margin: 0; font-size: clamp(1.45rem, 3vw, 2.15rem); letter-spacing: -.035em; line-height: 1.1; }
     .role-body ul { margin: 23px 0 0; padding: 0; list-style: none; display: grid; gap: 13px; }
     .role-body li { position: relative; padding-left: 22px; color: #b1c7bf; font-size: .96rem; }
