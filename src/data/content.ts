@@ -96,7 +96,6 @@ export const roles: Role[] = [
       'Helped build and scale Instagram-to-Facebook AI voice translation and dubbing experiences, contributing to growth from roughly 25K to 100K dubbed videos per day.',
       'Led Android engineering for AI-assisted creator publishing in Reels, including generated captions and thumbnail or frame recommendations.',
       'Shipped across persistent translation preferences, language expansion, creator insights, experimentation, and production reliability.',
-      'Built AI-assisted internal and on-call tooling while contributing to broader AI engineering initiatives.',
     ],
   },
   {
@@ -143,13 +142,6 @@ export const projects: Project[] = [
     description:
       'Built cloud services and deployment foundations for onboarding and managing connected devices, spanning APIs, containers, orchestration, data stores, infrastructure as code, and secure operations.',
     tags: ['Python + Go', 'Kubernetes', 'Terraform'],
-  },
-  {
-    no: '04 / OPERATIONS',
-    title: 'AI-assisted engineering workflows',
-    description:
-      'Built internal and on-call tooling that applies AI to the operational loop—helping engineers investigate faster and make production work more effective.',
-    tags: ['AI-Assisted Dev', 'On-Call', 'Production Engineering'],
   },
 ];
 
@@ -203,8 +195,8 @@ export const skillGroups: SkillGroup[] = [
 export const education: EducationItem[] = [
   {
     mark: 'MS',
-    kicker: 'Graduate degree · Data Science focus',
-    degree: 'M.S. Software Engineering',
+    kicker: 'Graduate degree · Software Engineering major',
+    degree: 'M.S. Electrical and Computer Engineering',
     school: 'Rutgers University',
     location: 'New Brunswick, NJ',
     dates: 'Sep 2019 – May 2021',
