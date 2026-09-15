@@ -6,7 +6,7 @@ export default function Skills() {
     <section className="section" id="skills">
       <div className="wrap">
         <SectionHeader no="[ 05 ]" title="Technical stack" />
-        <div className="skills-layout stagger">
+        <div className="skills-layout stagger-blur">
           {skillGroups.map((group) => (
             <article className="skill-group" key={group.heading}>
               <h3>{group.heading}</h3>

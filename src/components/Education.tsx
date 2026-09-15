@@ -6,7 +6,7 @@ export default function Education() {
     <section className="section" id="education">
       <div className="wrap">
         <SectionHeader no="[ 06 ]" title="Education" />
-        <div className="education-list stagger">
+        <div className="education-list stagger-flip">
           {education.map((item) => (
             <article className="education-item" key={item.degree}>
               <div className="education-mark" aria-hidden="true">

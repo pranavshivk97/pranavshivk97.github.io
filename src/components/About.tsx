@@ -16,12 +16,12 @@ export default function About() {
           }
         />
         <div className="about-grid">
-          <div className="about-copy reveal">
+          <div className="about-copy reveal reveal-scan">
             {aboutCopy.map((paragraph, i) => (
               <p key={i} dangerouslySetInnerHTML={{ __html: paragraph }} />
             ))}
           </div>
-          <aside className="signal-card reveal" aria-label="Profile summary">
+          <aside className="signal-card reveal reveal-scan" aria-label="Profile summary">
             <dl>
               {signalCard.map((item) => (
                 <div key={item.label}>

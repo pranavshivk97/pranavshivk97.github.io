@@ -8,7 +8,7 @@ interface SectionHeaderProps {
 
 export default function SectionHeader({ no, title, intro }: SectionHeaderProps) {
   return (
-    <div className="section-header reveal">
+    <div className="section-header reveal reveal-wipe">
       <div className="section-no">{no}</div>
       <div>
         <h2 className="section-title">{title}</h2>

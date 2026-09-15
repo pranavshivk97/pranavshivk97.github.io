@@ -12,8 +12,12 @@ export default function Experience() {
           intro="A path from infrastructure and backend engineering to ownership of AI-powered, user-facing product systems."
         />
         <div className="timeline">
-          {roles.map((role) => (
-            <article className="role reveal" key={role.company}>
+          {roles.map((role, i) => (
+            <article
+              className={`role reveal ${i % 2 === 0 ? 'reveal-side-l' : 'reveal-side-r'}`}
+              style={{ transitionDelay: `${i * 90}ms` }}
+              key={role.company}
+            >
               <div className="role-meta">
                 {role.dates}
                 {role.location && <span>{role.location}</span>}

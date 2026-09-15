@@ -10,7 +10,7 @@ export default function TrackRecord() {
           title="Track record"
           intro="A few systems and product problems that show how I operate—not just what I shipped."
         />
-        <div className="projects-grid stagger">
+        <div className="projects-grid stagger-tilt">
           {projects.map((project) => (
             <article className="project" key={project.title}>
               <div className="project-no">{project.no}</div>

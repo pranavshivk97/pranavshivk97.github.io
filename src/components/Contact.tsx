@@ -4,7 +4,7 @@ export default function Contact() {
   return (
     <section className="section contact" id="contact">
       <div className="wrap">
-        <div className="contact-panel reveal">
+        <div className="contact-panel reveal reveal-zoom">
           <h2>Let’s build what comes next.</h2>
           <p>
             For product engineering opportunities, ambitious 0→1 work, or a conversation about
