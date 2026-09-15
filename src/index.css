@@ -418,11 +418,13 @@
     .footer-links a:hover, .footer-links a:focus-visible { color: var(--mint); outline: none; }
 
     /* ---- Scroll transitions: one signature entrance per section ---- */
-    .reveal { opacity: 0; transition: opacity .7s ease, transform .8s cubic-bezier(.2,.8,.2,1), filter .7s ease, clip-path .85s cubic-bezier(.65,0,.25,1); }
-    .reveal.visible { opacity: 1; transform: none; filter: none; clip-path: inset(0 0 0 0); }
+    .reveal { opacity: 0; transition: opacity .7s ease, transform .8s cubic-bezier(.2,.8,.2,1); }
+    .reveal.visible { opacity: 1; transform: none; }
 
-    /* Section headers: terminal-style horizontal wipe */
-    .reveal-wipe { transform: translateX(-24px); clip-path: inset(0 100% 0 0); }
+    /* Section headers: the title slides up from inside a mask as the header fades in */
+    .title-mask { overflow: hidden; }
+    .title-mask-inner { display: block; transform: translateY(112%); transition: transform .85s cubic-bezier(.2,.8,.2,1) .12s; }
+    .reveal.visible .title-mask-inner { transform: translateY(0); }
 
     /* About: a scanline sweeps down as the copy resolves in behind it */
     .reveal-scan { position: relative; transform: translateY(18px); }
@@ -528,8 +530,8 @@
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
       *, *::before, *::after { animation-duration: .001ms !important; animation-iteration-count: 1 !important; transition-duration: .001ms !important; }
-      .reveal, .reveal-wipe, .reveal-scan, .reveal-side-l, .reveal-side-r, .reveal-zoom,
-      .stagger-tilt > *, .stagger-blur > *, .stagger-flip > * { opacity: 1 !important; transform: none !important; filter: none !important; clip-path: none !important; }
+      .reveal, .reveal-scan, .reveal-side-l, .reveal-side-r, .reveal-zoom, .title-mask-inner,
+      .stagger-tilt > *, .stagger-blur > *, .stagger-flip > * { opacity: 1 !important; transform: none !important; filter: none !important; }
       .intro-screen { display: none; }
       body.intro-active { overflow: auto; }
       body.intro-active .page { opacity: 1; transform: none; filter: none; }
