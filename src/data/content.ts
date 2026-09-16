@@ -50,7 +50,7 @@ export const profile = {
 export const navLinks: NavLink[] = [
   { label: 'About', href: '#about' },
   { label: 'Experience', href: '#experience' },
-  { label: 'Impact', href: '#projects' },
+  { label: 'Track Record', href: '#projects' },
   { label: 'Stack', href: '#skills' },
   { label: 'Contact', href: '#contact' },
 ];
@@ -91,6 +91,7 @@ export const signalCard: { label: string; value: string }[] = [
 export const roles: Role[] = [
   {
     dates: 'Jun 2025 – Present',
+    location: 'Menlo Park, CA',
     company: 'Meta',
     logo: 'meta',
     title: 'Software Engineer',
