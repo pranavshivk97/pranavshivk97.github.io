@@ -142,9 +142,9 @@ export const projects: Project[] = [
   },
   {
     no: '03 / PLATFORM',
-    title: 'IoT onboarding infrastructure',
+    title: 'Cisco IoT onboarding platform',
     description:
-      'Built cloud services and deployment foundations for onboarding and managing connected devices, spanning APIs, containers, orchestration, data stores, infrastructure as code, and secure operations.',
+      'Built cloud services and deployment foundations at Cisco for onboarding and managing connected devices, spanning APIs, containers, orchestration, data stores, infrastructure as code, and secure operations.',
     tags: ['Python + Go', 'Kubernetes', 'Terraform'],
   },
   {
