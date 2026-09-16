@@ -149,10 +149,10 @@ export const projects: Project[] = [
   },
   {
     no: '04 / OPERATIONS',
-    title: 'AI-assisted engineering workflows',
+    title: 'AI-assisted incident investigation & auto-fix',
     description:
-      'Built internal and on-call tooling that applies AI to the operational loop—helping engineers investigate faster and make production work more effective.',
-    tags: ['AI-Assisted Dev', 'On-Call', 'Production Engineering'],
+      'Built AI-assisted tooling at Meta that investigates production incidents and auto-applies fixes — cutting investigation time and reducing on-call toil.',
+    tags: ['AI-Assisted Dev', 'Auto-Remediation', 'On-Call'],
   },
 ];
 
