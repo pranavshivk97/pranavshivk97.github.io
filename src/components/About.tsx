@@ -5,7 +5,7 @@ export default function About() {
   return (
     <section className="section" id="about">
       <div className="wrap">
-        <SectionHeader kicker="About" title="Product-minded engineer." />
+        <SectionHeader title="About" />
         <div className="about-grid">
           <div className="about-copy reveal">
             {aboutCopy.map((paragraph, i) => (

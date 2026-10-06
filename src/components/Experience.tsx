@@ -5,7 +5,7 @@ export default function Experience() {
   return (
     <section className="section" id="experience">
       <div className="wrap">
-        <SectionHeader kicker="Experience" title="Where I've worked." />
+        <SectionHeader title="Experience" />
         <div>
           {roles.map((role) => (
             <article className="role reveal" key={role.company}>

@@ -5,7 +5,7 @@ export default function TrackRecord() {
   return (
     <section className="section" id="projects">
       <div className="wrap">
-        <SectionHeader kicker="Track record" title="Work I'm proud of." />
+        <SectionHeader title="Selected work" />
         <div>
           {projects.map((project) => (
             <article className="project reveal" key={project.no}>

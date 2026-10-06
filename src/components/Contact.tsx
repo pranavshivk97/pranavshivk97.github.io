@@ -4,10 +4,7 @@ export default function Contact() {
   return (
     <section className="section contact" id="contact">
       <div className="wrap">
-        <p className="section-kicker reveal">Contact</p>
-        <h2 className="contact-title reveal">
-          Let&rsquo;s build <em>what&rsquo;s next.</em>
-        </h2>
+        <h2 className="contact-title reveal">Let&rsquo;s build what&rsquo;s next.</h2>
         <p className="contact-copy reveal">
           I&rsquo;m always up for talking product engineering &mdash; 0&rarr;1
           work, platform problems, or AI features that have to survive

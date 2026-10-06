@@ -5,7 +5,7 @@ export default function Skills() {
   return (
     <section className="section" id="skills">
       <div className="wrap">
-        <SectionHeader kicker="Stack" title="Tools I reach for." />
+        <SectionHeader title="Stack" />
         <div className="stack-grid">
           {skillGroups.map((group) => (
             <div className="stack-group reveal" key={group.heading}>

@@ -46,7 +46,7 @@ export const profile = {
 export const navLinks: NavLink[] = [
   { label: 'About', href: '#about' },
   { label: 'Experience', href: '#experience' },
-  { label: 'Track Record', href: '#projects' },
+  { label: 'Selected work', href: '#projects' },
   { label: 'Stack', href: '#skills' },
   { label: 'Contact', href: '#contact' },
 ];

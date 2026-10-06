@@ -5,7 +5,7 @@ export default function Education() {
   return (
     <section className="section" id="education">
       <div className="wrap">
-        <SectionHeader kicker="Education" title="Schooling." />
+        <SectionHeader title="Education" />
         <div className="edu">
           {education.map((item) => (
             <div className="edu-item reveal" key={item.school}>
