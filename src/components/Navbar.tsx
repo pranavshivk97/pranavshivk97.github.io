@@ -75,14 +75,6 @@ export default function Navbar() {
       aria-label="Primary navigation"
     >
       <div className="nav-inner">
-        <a
-          className="nav-name"
-          href="#home"
-          aria-label="Back to top"
-          onClick={(e) => handleClick(e, '#home')}
-        >
-          PS
-        </a>
         <div className="nav-links">
           {navLinks.map((link) => {
             const isActive = link.href === activeHref;
