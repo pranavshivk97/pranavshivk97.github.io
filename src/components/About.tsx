@@ -1,36 +1,25 @@
-import { aboutCopy, signalCard } from '../data/content';
+import { aboutCopy, facts } from '../data/content';
 import SectionHeader from './SectionHeader';
 
 export default function About() {
   return (
     <section className="section" id="about">
       <div className="wrap">
-        <SectionHeader
-          no="[ 02 ]"
-          title={
-            <>
-              From ambiguity
-              <br />
-              to impact.
-            </>
-          }
-        />
+        <SectionHeader kicker="About" title="Product-minded engineer." />
         <div className="about-grid">
-          <div className="about-copy reveal reveal-scan">
+          <div className="about-copy reveal">
             {aboutCopy.map((paragraph, i) => (
-              <p key={i} dangerouslySetInnerHTML={{ __html: paragraph }} />
+              <p key={i}>{paragraph}</p>
             ))}
           </div>
-          <aside className="signal-card reveal reveal-scan" aria-label="Profile summary">
-            <dl>
-              {signalCard.map((item) => (
-                <div key={item.label}>
-                  <dt>{item.label}</dt>
-                  <dd>{item.value}</dd>
-                </div>
-              ))}
-            </dl>
-          </aside>
+          <dl className="facts reveal">
+            {facts.map((fact) => (
+              <div className="fact" key={fact.label}>
+                <dt>{fact.label}</dt>
+                <dd>{fact.value}</dd>
+              </div>
+            ))}
+          </dl>
         </div>
       </div>
     </section>

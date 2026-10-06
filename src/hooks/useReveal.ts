@@ -1,11 +1,9 @@
 import { useEffect } from 'react';
 
-/** Adds `.visible` to reveal / stagger containers as they enter the viewport. */
+/** Adds `.visible` to `.reveal` elements as they enter the viewport. */
 export function useReveal() {
   useEffect(() => {
-    const els = Array.from(
-      document.querySelectorAll('.reveal, .stagger-tilt, .stagger-blur, .stagger-flip'),
-    );
+    const els = Array.from(document.querySelectorAll('.reveal'));
     const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
     if ('IntersectionObserver' in window && !reduced) {
@@ -18,7 +16,7 @@ export function useReveal() {
             }
           });
         },
-        { threshold: 0.12 },
+        { threshold: 0.1, rootMargin: '0px 0px -40px 0px' },
       );
       els.forEach((el) => observer.observe(el));
       return () => observer.disconnect();

@@ -5,23 +5,15 @@ export default function TrackRecord() {
   return (
     <section className="section" id="projects">
       <div className="wrap">
-        <SectionHeader
-          no="[ 04 ]"
-          title="Track record"
-          intro="A few systems and product problems that show how I operate—not just what I shipped."
-        />
-        <div className="projects-grid stagger-tilt">
+        <SectionHeader kicker="Track record" title="Work I'm proud of." />
+        <div>
           {projects.map((project) => (
-            <article className="project" key={project.title}>
+            <article className="project reveal" key={project.no}>
               <div className="project-no">{project.no}</div>
-              <h3>{project.title}</h3>
-              <p>{project.description}</p>
-              <div className="project-footer">
-                <div className="tags">
-                  {project.tags.map((tag) => (
-                    <span key={tag}>{tag}</span>
-                  ))}
-                </div>
+              <div>
+                <h3>{project.title}</h3>
+                <p>{project.description}</p>
+                <p className="project-tags">{project.tags.join(' · ')}</p>
               </div>
             </article>
           ))}

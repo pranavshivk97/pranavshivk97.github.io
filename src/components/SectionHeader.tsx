@@ -1,21 +1,14 @@
-import type { ReactNode } from 'react';
-
 interface SectionHeaderProps {
-  no: string;
-  title: ReactNode;
-  intro?: string;
+  kicker: string;
+  title: string;
 }
 
-export default function SectionHeader({ no, title, intro }: SectionHeaderProps) {
+export default function SectionHeader({ kicker, title }: SectionHeaderProps) {
   return (
-    <div className="section-header reveal">
-      <div className="section-no">{no}</div>
-      <div>
-        <h2 className="section-title title-mask">
-          <span className="title-mask-inner">{title}</span>
-        </h2>
-        {intro && <p className="section-intro">{intro}</p>}
-      </div>
+    <div className="section-head reveal">
+      <p className="section-kicker">{kicker}</p>
+      <h2 className="section-title">{title}</h2>
+      <hr className="section-rule" />
     </div>
   );
 }

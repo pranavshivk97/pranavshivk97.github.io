@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
-import { navLinks } from '../data/content';
+import { navLinks, profile } from '../data/content';
 import { smoothScrollTo } from '../lib/smoothScroll';
 
 export default function Navbar() {
@@ -46,20 +46,25 @@ export default function Navbar() {
   return (
     <nav
       ref={navRef}
-      id="nav"
       className={`site-nav${scrolled ? ' scrolled' : ''}`}
       aria-label="Primary navigation"
     >
       <div className="nav-inner">
+        <a
+          className="nav-name"
+          href="#home"
+          onClick={(e) => handleClick(e, '#home')}
+        >
+          {profile.name}
+        </a>
         <div className="nav-links">
           {navLinks.map((link) => {
             const isActive = link.href === activeHref;
-            const isContact = link.href === '#contact';
             return (
               <a
                 key={link.href}
                 href={link.href}
-                className={`${isActive ? 'active' : ''}${isContact ? ' contact-link' : ''}`}
+                className={isActive ? 'active' : ''}
                 aria-current={isActive ? 'location' : undefined}
                 onClick={(e) => handleClick(e, link.href)}
               >

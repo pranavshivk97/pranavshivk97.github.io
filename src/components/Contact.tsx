@@ -4,30 +4,42 @@ export default function Contact() {
   return (
     <section className="section contact" id="contact">
       <div className="wrap">
-        <div className="contact-panel reveal reveal-zoom">
-          <h2>Let’s build what comes next.</h2>
-          <p>
-            For product engineering opportunities, ambitious 0→1 work, or a conversation about
-            building AI-powered experiences that hold up in production.
-          </p>
-          <div className="contact-actions">
-            <a className="btn" href={`mailto:${profile.email}`}>
-              Email {profile.firstName} <span aria-hidden="true">↗</span>
-            </a>
-            <a className="btn ghost" href={profile.github} target="_blank" rel="noreferrer">
-              GitHub
-            </a>
-            <a className="btn ghost" href={profile.linkedin} target="_blank" rel="noreferrer">
-              LinkedIn
-            </a>
-          </div>
+        <p className="section-kicker reveal">Contact</p>
+        <h2 className="contact-title reveal">
+          Let&rsquo;s build <em>what&rsquo;s next.</em>
+        </h2>
+        <p className="contact-copy reveal">
+          I&rsquo;m always up for talking product engineering &mdash; 0&rarr;1
+          work, platform problems, or AI features that have to survive
+          production.
+        </p>
+        <div className="contact-actions reveal">
+          <a className="contact-email" href={`mailto:${profile.email}`}>
+            {profile.email}
+          </a>
         </div>
-        <footer className="footer-line">
-          <span>
-            {profile.name} · {profile.title}
-          </span>
-          <div className="footer-links">
-            <a href="#home">Back to top ↑</a>
+        <div className="contact-actions reveal">
+          <a
+            className="text-link"
+            href={profile.github}
+            target="_blank"
+            rel="noreferrer"
+          >
+            GitHub <span className="arrow" aria-hidden="true">&nearr;</span>
+          </a>
+          <a
+            className="text-link"
+            href={profile.linkedin}
+            target="_blank"
+            rel="noreferrer"
+          >
+            LinkedIn <span className="arrow" aria-hidden="true">&nearr;</span>
+          </a>
+        </div>
+        <footer className="footer reveal">
+          <div className="footer-inner">
+            <span>&copy; 2026 {profile.name}</span>
+            <a href="#home">Back to top &uarr;</a>
           </div>
         </footer>
       </div>

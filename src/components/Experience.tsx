@@ -1,33 +1,21 @@
 import { roles } from '../data/content';
-import CompanyLogo from './CompanyLogo';
 import SectionHeader from './SectionHeader';
 
 export default function Experience() {
   return (
     <section className="section" id="experience">
       <div className="wrap">
-        <SectionHeader
-          no="[ 03 ]"
-          title="Experience"
-          intro="A path from infrastructure and backend engineering to ownership of AI-powered, user-facing product systems."
-        />
-        <div className="timeline">
-          {roles.map((role, i) => (
-            <article
-              className={`role reveal ${i % 2 === 0 ? 'reveal-side-l' : 'reveal-side-r'}`}
-              style={{ transitionDelay: `${i * 90}ms` }}
-              key={role.company}
-            >
-              <div className="role-meta">
+        <SectionHeader kicker="Experience" title="Where I've worked." />
+        <div>
+          {roles.map((role) => (
+            <article className="role reveal" key={role.company}>
+              <div className="role-dates">
                 {role.dates}
                 {role.location && <span>{role.location}</span>}
               </div>
               <div className="role-body">
-                <div className="role-head">
-                  <CompanyLogo name={role.logo} />
-                  <p className="role-company">{role.company}</p>
-                </div>
-                <h3>{role.title}</h3>
+                <h3 className="role-company">{role.company}</h3>
+                <p className="role-title">{role.title}</p>
                 <ul>
                   {role.bullets.map((bullet, i) => (
                     <li key={i}>{bullet}</li>

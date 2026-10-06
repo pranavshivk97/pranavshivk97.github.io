@@ -5,17 +5,13 @@ export default function Skills() {
   return (
     <section className="section" id="skills">
       <div className="wrap">
-        <SectionHeader no="[ 05 ]" title="Technical stack" />
-        <div className="skills-layout stagger-blur">
+        <SectionHeader kicker="Stack" title="Tools I reach for." />
+        <div className="stack-grid">
           {skillGroups.map((group) => (
-            <article className="skill-group" key={group.heading}>
+            <div className="stack-group reveal" key={group.heading}>
               <h3>{group.heading}</h3>
-              <div className="skill-list">
-                {group.skills.map((skill) => (
-                  <span key={skill}>{skill}</span>
-                ))}
-              </div>
-            </article>
+              <p>{group.skills.join(', ')}</p>
+            </div>
           ))}
         </div>
       </div>

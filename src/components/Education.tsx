@@ -5,25 +5,18 @@ export default function Education() {
   return (
     <section className="section" id="education">
       <div className="wrap">
-        <SectionHeader no="[ 06 ]" title="Education" />
-        <div className="education-list stagger-flip">
+        <SectionHeader kicker="Education" title="Schooling." />
+        <div className="edu">
           {education.map((item) => (
-            <article className="education-item" key={item.degree}>
-              <div className="education-mark" aria-hidden="true">
-                {item.mark}
+            <div className="edu-item reveal" key={item.school}>
+              <div>
+                <h3 className="edu-degree">{item.degree}</h3>
+                <p className="edu-school">
+                  {item.school} — {item.location}
+                </p>
               </div>
-              <div className="education-body">
-                <div className="education-kicker">{item.kicker}</div>
-                <p className="degree">{item.degree}</p>
-                <div>
-                  <span className="school">{item.school}</span>
-                  <span className="location">{item.location}</span>
-                </div>
-              </div>
-              <time className="date" dateTime={item.dateTime}>
-                {item.dates}
-              </time>
-            </article>
+              <div className="edu-dates">{item.dates}</div>
+            </div>
           ))}
         </div>
       </div>

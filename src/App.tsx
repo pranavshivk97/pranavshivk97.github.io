@@ -1,9 +1,6 @@
-import { useCallback, useEffect, useLayoutEffect, useState } from 'react';
-import IntroScreen from './components/IntroScreen';
-import SignalField from './components/SignalField';
+import { useEffect } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
-import Marquee from './components/Marquee';
 import About from './components/About';
 import Experience from './components/Experience';
 import TrackRecord from './components/TrackRecord';
@@ -15,17 +12,10 @@ import { navLinks } from './data/content';
 import { smoothScrollTo } from './lib/smoothScroll';
 
 export default function App() {
-  const [introDone, setIntroDone] = useState(false);
-  const [heroLive, setHeroLive] = useState(false);
-
-  useLayoutEffect(() => {
-    document.body.classList.toggle('intro-active', !introDone);
-  }, [introDone]);
-
   useReveal();
 
-  // Smooth-scroll any in-page anchor the navbar doesn't handle itself
-  // (hero CTAs, footer back-to-top), mirroring the original behavior.
+  // Smooth-scroll in-page anchors the navbar doesn't handle itself
+  // (hero links, footer back-to-top).
   useEffect(() => {
     const onClick = (event: MouseEvent) => {
       const anchor = (event.target as HTMLElement).closest?.('a[href^="#"]');
@@ -41,28 +31,18 @@ export default function App() {
     return () => document.removeEventListener('click', onClick);
   }, []);
 
-  const handleIntroDone = useCallback(() => setIntroDone(true), []);
-
   return (
     <>
-      {!introDone && (
-        <IntroScreen onDone={handleIntroDone} onExitStart={() => setHeroLive(true)} />
-      )}
-      <SignalField />
-      <div className="noise" aria-hidden="true" />
-      <div className="page" id="portfolio-page" inert={!introDone}>
-        <Navbar />
-        <main>
-          <Hero active={heroLive} />
-          <Marquee />
-          <About />
-          <Experience />
-          <TrackRecord />
-          <Skills />
-          <Education />
-          <Contact />
-        </main>
-      </div>
+      <Navbar />
+      <main>
+        <Hero />
+        <About />
+        <Experience />
+        <TrackRecord />
+        <Skills />
+        <Education />
+        <Contact />
+      </main>
     </>
   );
 }
