@@ -100,12 +100,12 @@ export default function Navbar() {
           })}
           <button
             type="button"
-            className="theme-toggle"
+            className="theme-switch"
             onClick={toggleTheme}
             aria-pressed={theme === 'dark'}
             aria-label={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
           >
-            {theme === 'dark' ? 'Light' : 'Dark'}
+            <span className="theme-knob" aria-hidden="true" />
           </button>
         </div>
       </div>

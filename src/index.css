@@ -95,22 +95,34 @@ h1, h2, h3, p { margin-top: 0; }
 }
 .nav-links a:hover { color: var(--ink); }
 .nav-links a.active { color: var(--accent-deep); }
-.theme-toggle {
+.theme-switch {
   margin-left: 10px;
-  padding: 7px 11px;
-  background: none;
+  position: relative;
+  width: 44px;
+  height: 24px;
+  flex: none;
+  padding: 0;
   border: 1px solid var(--line);
   border-radius: 999px;
-  color: var(--muted);
-  font-family: var(--font-mono);
-  font-size: .66rem;
-  letter-spacing: .1em;
-  text-transform: uppercase;
+  background: var(--paper-deep);
   cursor: pointer;
-  white-space: nowrap;
-  transition: color .18s ease, border-color .18s ease;
+  transition: background .2s ease, border-color .2s ease;
 }
-.theme-toggle:hover { color: var(--ink); border-color: var(--muted); }
+.theme-switch:hover { border-color: var(--muted); }
+.theme-knob {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--muted);
+  transition: transform .22s ease, background .2s ease;
+}
+.theme-switch[aria-pressed="true"] .theme-knob {
+  transform: translateX(20px);
+  background: var(--accent);
+}
 
 /* ---------- Hero ---------- */
 .hero { padding: 168px 0 88px; }
